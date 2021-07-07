@@ -17,7 +17,14 @@ use App\Http\Controllers\HomeController ;
 Route::get('/', function () {
     return view('welcome');
 });
- Auth::routes();
+ Auth::routes(['verify' => true]);
+
+ //Email Verification route Start
+ Route::get('/email/verify', function () {
+    return view('auth.verify-email');
+})->middleware('auth')->name('verification.notice');
+//Email Verification End 
+
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('admin/home', 'HomeController@adminHome')->name('admin.home')->middleware('is_admin');
