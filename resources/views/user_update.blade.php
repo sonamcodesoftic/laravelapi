@@ -13,7 +13,7 @@
     </div>
     <div class="form-group">
       <label for="text">Last Name:</label>
-      <input type="text" class="form-control" id="lname" placeholder="Enter Last Name" name="course" value="<?php echo $user->lname; ?>" />
+      <input type="text" class="form-control" id="lname" placeholder="Enter Last Name" name="lname" value="<?php echo $user->lname; ?>" />
     </div>
     <div class="form-group">
       <label for="text">Email</label>

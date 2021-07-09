@@ -48,7 +48,7 @@ class HomeController extends Controller
     }
     public function posteditdata(request $request,$id)
     {      
-        $member = User:: find($id);
+        $member = User::find($id);
         //  dd($member);
         $member ->fname=$request->fname;
         $member ->lname=$request->lname;
@@ -64,7 +64,8 @@ class HomeController extends Controller
         $member ->status=$request->status;
         $member ->gender=$request->gender;
         $member->save();
-        return redirect()->route('/users');
+        // return redirect()->route('/users');
+        return redirect('users');
     }
     // Function to update user data BY admin End
 
@@ -76,9 +77,8 @@ class HomeController extends Controller
 
     public function submituserdata(Request $request)
     {
-        
         //  dd($member);
-        return User::create([
+             User::create([
             'fname' => $request['fname'],
             'lname' => $request['lname'],
             'email' => $request['email'],
@@ -95,10 +95,7 @@ class HomeController extends Controller
             // 'userrole' => $request['userrole'],
             // 'status' => $request['status'],    
         ]);
-        return redirect()->route('users');
+        return redirect('users');
     }
     //Function to add new user End
-
-
-
 }
