@@ -61,7 +61,6 @@ class RegisterController extends Controller
             'country' => ['required', 'string'],
         ]);
     }
-
     /**
      * Create a new user instance after a valid registration.
      *

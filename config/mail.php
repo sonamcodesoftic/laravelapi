@@ -35,16 +35,42 @@ return [
 
     'mailers' => [
         'smtp' => [
+
             'transport' => 'smtp',
-            'host' => env('MAIL_HOST', 'smtp.mailgun.org'),
-            'port' => env('MAIL_PORT', 587),
+            // 'path' => '/xampp/sendmail/sendmail.exe -bs', 
+            'host' => env('MAIL_HOST', 'smtp.mailtrap.com'),
+            'port' => env('MAIL_PORT', 2525),
             'encryption' => env('MAIL_ENCRYPTION', 'tls'),
-            'username' => env('MAIL_USERNAME'),
-            'password' => env('MAIL_PASSWORD'),
+            'username' => env('MAIL_USERNAME', '1bbdb881a6a935'),
+            'password' => env('MAIL_PASSWORD', '8245b0db155903'),
             'timeout' => null,
             'auth_mode' => null,
+           
+            // 'transport' => 'sendmail',
+            // 'path'=>'C:\xampp\sendmail\sendmail.exe -bs',
+            // 'class' => 'Swift_SmtpTransport',
+            // 'host' => env('MAIL_HOST', 'smtp.gmail.com'),
+            // 'port' => env('MAIL_PORT', 587),
+            // 'encryption' => env('MAIL_ENCRYPTION', 'tls'),
+            // 'username' => env('MAIL_USERNAME','sonamsharmahh@gmail.com'),
+            // 'password' => env('MAIL_PASSWORD','@sonam@123'),
+            // 'timeout' => null,
+            // 'auth_mode' => null,
+            
+            //  'transport' => 'sendmail',
+            //  'driver' => env('MAIL_DRIVER', 'sendmail'),
+            //  'class' => 'Swift_SmtpTransport',
+            //  'host' => env('MAIL_HOST', 'smtp.ethereal.email'),
+            //  'port' => env('MAIL_PORT', 587),
+            // //  'from' => ['address' => '<<sonam.codesoftic@gmail.com>>', 'name' => '<<Sonam Sharma>>'],
+            //  'encryption' => env('MAIL_ENCRYPTION', 'tls'),
+            //  'username' => env('MAIL_USERNAME', 'isaias11@ethereal.email'),
+            //  'password' => env('MAIL_PASSWORD', 'kmtks6Y51fcX7fWk5W'),
+            //  'sendmail' => '\xampp\sendmail\sendmail.exe\ -t',
+            //  'pretend' => false,
+            //  'timeout' => null,
+            //  'auth_mode' => null,
         ],
-
         'ses' => [
             'transport' => 'ses',
         ],
@@ -83,9 +109,21 @@ return [
     |
     */
 
+    'stream'=>[
+        'ssl'=>[
+            'allow_self_signed'=>true,
+            'verify_peer'=>false,
+            'verify_peer_name'=>false,
+
+        ],
+    ],
+
+
+
+
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'hello@example.com'),
-        'name' => env('MAIL_FROM_NAME', 'Example'),
+        'address' => env('MAIL_FROM_ADDRESS', 'sonam.codesoftic@gmail.com'),
+        'name' => env('MAIL_FROM_NAME', 'Laravel'),
     ],
 
     /*

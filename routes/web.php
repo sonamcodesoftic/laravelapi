@@ -48,11 +48,11 @@ Route::get('/', function () {
 
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('admin/home', 'HomeController@adminHome')->name('admin.home')->middleware('is_admin');
+Route::get('admin/home', 'App\Http\Controllers\HomeController@adminHome')->name('admin.home')->middleware('is_admin');
 
 
 // route to show user data
-Route::get('/users','App\Http\Controllers\HomeController@show_user_data');
+Route::get('users','App\Http\Controllers\HomeController@show_user_data');
 
 // route to edit user data
 Route::get('/edit-user/{id}','App\Http\Controllers\HomeController@update');
@@ -60,5 +60,10 @@ Route::post('/submit/{id}','App\Http\Controllers\HomeController@posteditdata');
 
 //route to add new user by admin
 Route::get('addnewuser','App\Http\Controllers\HomeController@addnewuser');
- Route::post('submited','App\Http\Controllers\HomeController@submituserdata');
+Route::post('submited','App\Http\Controllers\HomeController@submituserdata');
+
+//route for user profile
+Route::get('admin/profile_user/{id}','App\Http\Controllers\HomeController@user_profile');
+Route::post('/submitprofile/{id}','App\Http\Controllers\HomeController@postprofiledata');
+
 

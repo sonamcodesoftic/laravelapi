@@ -6,7 +6,7 @@
   <style>
       .tableborder
       {
-          border:px solid black;
+          border:1px solid black;
       }
       th
       {
@@ -16,9 +16,9 @@
       {
         padding:10px 30px 10px 30px ;
       }
-      a
+      .update_Button
       {
-        color:white!important;
+         color:white!important;
         text-decoration:none!important;
       }
       .actions
@@ -28,16 +28,14 @@
   </style>  
 
 
-  <div class="container">
+  <div class="container mb-5">
     <div class="row">
-     <div>
-      <a href="addnewuser"><button class="btn btn-primary">Add User</button></a>
-     </div>
+      <div>
+        <a href="addnewuser"><button class="btn btn-primary">Add User</button></a>
+      </div>
     </div>
   </div>
-
-
-
+    
   <div class="container">
       <table border="1">
           <tr>
@@ -85,11 +83,23 @@
               
 
               <!-- <td><button class="btn btn-primary"><a href='update/{{$user->id}}'>update</a></button></td> -->
-              <td><button class="btn btn-primary"><a href='edit-user/{{$user->id}}'>update</a></button></td>
-              <td><button class="btn btn-primary"><a href=''>Delete</a></button></td>
+              <td><button class="btn btn-primary"><a class="update_Button" href='edit-user/{{$user->id}}'>update</a></button></td>
+              <td><button class="btn btn-primary"><a class="update_Button" href=''>Delete</a></button></td>
             </tr>  
             <?php $count++;  ?>
           @endforeach
+  
       </table>
+
+     <!-- <nav aria-label="Page navigation example">
+       <ul class="pagination">
+          <li class="page-item"><a class="page-link" href="">Previous</a></li>
+          <li class="page-item"><a class="page-link" href="">1</a></li>
+          <li class="page-item"><a class="page-link" href="#">2</a></li>
+          <li class="page-item"><a class="page-link" href="#">3</a></li>
+          <li class="page-item"><a class="page-link" href="#">Next</a></li>
+       </ul>
+      </nav> -->
   </div>
+
   @endsection
