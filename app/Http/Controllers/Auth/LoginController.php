@@ -26,7 +26,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/test0000000000000000000000000000000000000';
    
     /**
      * Create a new controller instance.
@@ -40,6 +40,8 @@ class LoginController extends Controller
    
     public function login(Request $request)
     {   
+
+        //return ("hello logged in controller");
         $input = $request->all();
    
         $this->validate($request, [
@@ -51,17 +53,36 @@ class LoginController extends Controller
         {
             if (auth()->user()->is_admin == 1) {
                 // return redirect()->route('admin.home');
-                return redirect('admin/home');
-                
+              //  return redirect('admin/home');
+              return ("hello admin in controller");
+            //   return response()->json([
+            //     'message' => 'you are a Admin!',
+              
+            // ]);
+                  
+    
             }else{
-                return redirect()->route('home');
+               // return redirect()->route('home');
+
+               return ("hello admin in controller");
+            //    return response()->json([
+            //     'message' => 'you are a user!',
+              
+            // ]);
+            //           //    return response('Hello World', 200)
             }
         }else{
 
             // return back()->with('success','Email and password are wrong');
-            return redirect()->route('login')
-            ->with('error','Email address and Password are wrong');
+            // return redirect()->route('login')
+            // ->with('error','Email address and Password are wrong');
+            return ("hello invalid creds ");
+            // return response()->json([
+            //     'message' => 'you are a Invalid user',
+              
+            // ]);
+
         }
              
-    }
+     }
 }

@@ -3,7 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use App\Http\Controllers\HomeController ;
-
+use App\Http\Controllers\Auth\RegisterController ;
+use App\Http\Controllers\Auth\LoginController ;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,7 +19,22 @@ use App\Http\Controllers\HomeController ;
 Route::get('/', function () {
     return view('welcome');
 });
- Auth::routes();
+
+Route::get('/test' ,function  () {
+    return ("hello");
+}
+);
+
+
+Route::post('register', [RegisterController::class, 'register']);
+Route::get('/login', [LoginController::class, 'login']);
+Route::get('/usersdata', function(){
+    return User::all();
+});
+
+
+
+//  Auth::routes();
 
  //Email Verification route Start
 //  Route::get('/email/verify', function () {

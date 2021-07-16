@@ -37,9 +37,9 @@ return [
         'smtp' => [
 
             'transport' => 'smtp',
-            // 'path' => '/xampp/sendmail/sendmail.exe -bs', 
+            'path' => '/xampp/sendmail/sendmail.exe -bs', 
             'host' => env('MAIL_HOST', 'smtp.mailtrap.com'),
-            'port' => env('MAIL_PORT', 2525),
+            'port' => env('MAIL_PORT', 465),
             'encryption' => env('MAIL_ENCRYPTION', 'tls'),
             'username' => env('MAIL_USERNAME', '1bbdb881a6a935'),
             'password' => env('MAIL_PASSWORD', '8245b0db155903'),
