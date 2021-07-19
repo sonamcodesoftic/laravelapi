@@ -26,7 +26,7 @@ class CreateUsersSeeder extends Seeder
         //        'password'=> bcrypt('123456'),
         //     ],
         // ];
-  
+
         // foreach ($user as $key => $value) {
         //     User::create($value);
         // }

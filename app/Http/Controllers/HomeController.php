@@ -37,12 +37,14 @@ class HomeController extends Controller
     }
 
     //Funcction to Show users data to admin
-    public function show_user_data(Request $request)
+    public function show_user_data(request $request)
     {
+        return "ok";
         // $user = User::all();
         // $user = DB::table('users')->orderBy('id')->cursorPaginate(10);
-        $user = User::all();
-        return view('user',compact('user'));
+        return User::all();
+        // return view('user',compact('user'));
+        // return "There YOu Go"; 
     }
 
     // Function to update user data BY admin start
@@ -129,6 +131,11 @@ class HomeController extends Controller
         return redirect()->route('home')
         ->with('error','your data Changed successfully ');
 
+    }
+
+    public function new()
+    {
+        return"hello sonam is crying" ;
     }
    //functio to user proflie end
 }

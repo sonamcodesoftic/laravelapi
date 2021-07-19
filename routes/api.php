@@ -4,6 +4,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Models\User;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\HomeController;
 
 
 /*
@@ -25,5 +27,23 @@ Route::get('/usersdata', function(){
     return "Hello i am here";
 });
 
-Route::post('/register', 'App\Http\Controllers\Auth\LoginController@login');
+
+Route::post('/register', 'App\Http\Controllers\Auth\RegisterController@create');
 Route::post('/login', 'App\Http\Controllers\Auth\LoginController@login');
+Route::get('/users', 'App\Http\Controllers\HomeController@show_user_data');
+Route::get('/userdata', 'App\Http\Controllers\HomeController@show_user_data');
+
+
+
+
+
+Route::get('/show', 'App\Http\Controllers\DataController@show_source');
+
+
+
+
+
+
+
+
+Route::get('/new', 'App\Http\Controllers\HomeController@new');

@@ -8,9 +8,11 @@ use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
-
+use Illuminate\Http\Request;
 class RegisterController extends Controller
 {
+    public $successStatus = 200;
+
     /*
     |--------------------------------------------------------------------------
     | Register Controller
@@ -49,17 +51,17 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
-        return Validator::make($data, [
-            'fname' => ['required', 'string', 'max:255'],
-            'lname' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
-            'phone' => ['required', 'string'],
-            'pincode' => ['required', 'string'],
-            'city' => ['required', 'string'],
-            'state' => ['required', 'string'],
-            'country' => ['required', 'string'],
-        ]);
+        // return Validator::make($data, [
+        //     'fname' => ['required', 'string', 'max:255'],
+        //     'lname' => ['required', 'string', 'max:255'],
+        //     'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+        //     'password' => ['required', 'string', 'min:8', 'confirmed'],
+        //     'phone' => ['required', 'string'],
+        //     'pincode' => ['required', 'string'],
+        //     'city' => ['required', 'string'],
+        //     'state' => ['required', 'string'],
+        //     'country' => ['required', 'string'],
+        // ]);
     }
     /**
      * Create a new user instance after a valid registration.
@@ -67,19 +69,24 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \App\Models\User
      */
-    protected function create(array $data)
-    {;
-        return User::create([
-            'fname' => $data['fname'],
-            'lname' => $data['lname'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
-            'phone' => $data['phone'],
-            'pincode' => $data['pincode'],
-            'city' => $data['city'],
-            'state' => $data['state'],
-            'country' => $data['country'],
-                
-        ]);
+    protected function create(Request $request)
+    {
+
+        // return ($request);
+        
+  
+        $member = new User();
+        $member ->fname=$request->fname;
+        $member ->lname=$request->lname;
+        $member ->email=$request->email;
+        $member ->password=Hash::make($request['password']);
+        $member ->phone=$request->phone;
+        $member ->pincode=$request->pincode;
+        $member ->city=$request->city;
+        $member ->state=$request->state;
+        $member ->country=$request->country;
+        
+        $member ->save();
+        echo "Data Submitted";
     }
 }

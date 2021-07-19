@@ -20,17 +20,44 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/test' ,function  () {
-    return ("hello");
-}
-);
+// Route::get('/test' ,function  () {
+//     return ("hello");
+// }
+// );
 
 
-Route::post('register', [RegisterController::class, 'register']);
-Route::get('/login', [LoginController::class, 'login']);
-Route::get('/usersdata', function(){
-    return User::all();
-});
+// Route::post('register', [RegisterController::class, 'register']);
+// Route::get('/login', [LoginController::class, 'login']);
+// Route::get('/usersdata', function(){
+// //     return User::all();
+// });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -63,23 +90,50 @@ Route::get('/usersdata', function(){
 //Email Verification End 
 
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('admin/home', 'App\Http\Controllers\HomeController@adminHome')->name('admin.home')->middleware('is_admin');
 
 
-// route to show user data
-Route::get('users','App\Http\Controllers\HomeController@show_user_data');
 
-// route to edit user data
-Route::get('/edit-user/{id}','App\Http\Controllers\HomeController@update');
-Route::post('/submit/{id}','App\Http\Controllers\HomeController@posteditdata');
 
-//route to add new user by admin
-Route::get('addnewuser','App\Http\Controllers\HomeController@addnewuser');
-Route::post('submited','App\Http\Controllers\HomeController@submituserdata');
 
-//route for user profile
-Route::get('admin/profile_user/{id}','App\Http\Controllers\HomeController@user_profile');
-Route::post('/submitprofile/{id}','App\Http\Controllers\HomeController@postprofiledata');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::get('admin/home', 'App\Http\Controllers\HomeController@adminHome')->name('admin.home')->middleware('is_admin');
+
+
+// // route to show user data
+// Route::get('users','App\Http\Controllers\HomeController@show_user_data');
+
+// // route to edit user data
+// Route::get('/edit-user/{id}','App\Http\Controllers\HomeController@update');
+// Route::post('/submit/{id}','App\Http\Controllers\HomeController@posteditdata');
+
+// //route to add new user by admin
+// Route::get('addnewuser','App\Http\Controllers\HomeController@addnewuser');
+// Route::post('submited','App\Http\Controllers\HomeController@submituserdata');
+
+// //route for user profile
+// Route::get('admin/profile_user/{id}','App\Http\Controllers\HomeController@user_profile');
+// Route::post('/submitprofile/{id}','App\Http\Controllers\HomeController@postprofiledata');
 
 
