@@ -1,7 +1,9 @@
 <?php
   
 namespace App\Http\Controllers\Auth;
-   
+
+use Auth;
+use Session;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
@@ -48,9 +50,7 @@ class LoginController extends Controller
             {
                 return response()->json([
                                 'message' => 'Your are admin!',
-                              
                             ]);
-               
             }
             else{
                 return response()->json([
@@ -105,4 +105,13 @@ class LoginController extends Controller
        
              
     //  }
+
+    public function logout(Request $request)
+    {
+        // Session::flush();
+        Auth::logout();
+        return response()->json([
+            'message' => 'Logout Completed',
+         ]);
+    }
 }

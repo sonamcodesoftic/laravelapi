@@ -48,10 +48,14 @@ class HomeController extends Controller
     }
 
     // Function to update user data BY admin start
-    public function update($user_id)
+    public function update()
     { 
-       $user = User::find($user_id);
-       return view('user_update',compact('user'));
+    //    $user = User::find($user_id);
+    //    return view('user_update',compact('user'));
+      return "hello";
+  
+    // $user = User::find($user_id);
+    // return ($user);
     }
     public function posteditdata(request $request,$id)
     {  
@@ -73,8 +77,7 @@ class HomeController extends Controller
         return redirect('users');
     }
     // Function to update user data BY admin End
-
-
+    
     //Function to add new user start
     public function addnewuser(Request $request)
     {
@@ -82,23 +85,40 @@ class HomeController extends Controller
     }
     public function submituserdata(Request $request)
     {
-             User::create([
-            'fname' => $request['fname'],
-            'lname' => $request['lname'],
-            'email' => $request['email'],
-            'password' => Hash::make($request['password']),
-            'phone' => $request['phone'],
-            'pincode' => $request['pincode'],
-            'city' => $request['city'],
-            'state' => $request['state'],
-            'country' => $request['country'],
+            //  User::create([
+            // 'fname' => $request['fname'],
+            // 'lname' => $request['lname'],
+            // 'email' => $request['email'],
+            // 'password' => Hash::make($request['password']),
+            // 'phone' => $request['phone'],
+            // 'pincode' => $request['pincode'],
+            // 'city' => $request['city'],
+            // 'state' => $request['state'],
+            // 'country' => $request['country'],
+
+            
+        $member = new User();
+        $member ->fname=$request->fname;
+        $member ->lname=$request->lname;
+        $member ->email=$request->email;
+        $member ->password=Hash::make($request['password']);
+        $member ->phone=$request->phone;
+        $member ->pincode=$request->pincode;
+        $member ->city=$request->city;
+        $member ->state=$request->state;
+        $member ->country=$request->country;
+        
+        $member ->save();
+        return "new user added";
+
+
             // 'pincode' => $request['pincode'],
             // 'nationality' => $request['nationality'],
             // 'gender' => $request['gender'],
             // 'date_of_birth' => $request['date_of_birth'],
             // 'userrole' => $request['userrole'],
             // 'status' => $request['status'],    
-        ]);
+        // ]);
         return redirect('users');
     }
     //Function to add new user End

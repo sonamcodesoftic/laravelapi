@@ -137,3 +137,14 @@ Route::get('/', function () {
 // Route::post('/submitprofile/{id}','App\Http\Controllers\HomeController@postprofiledata');
 
 
+
+
+
+
+
+
+
+
+Route::get('change-password', 'ChangePasswordController@index');
+Route::post('change-password', 'ChangePasswordController@store')->name('change.password');
+

@@ -73,8 +73,13 @@ class RegisterController extends Controller
     {
 
         // return ($request);
-        
-  
+
+        // For Image submission 
+        $image = $request->file('profile');
+        $profile = time().'.'.$image->getClientOriginalExtension();
+        $destinationpath = public_path('/images');
+        $image->move($destinationpath,$profile);
+
         $member = new User();
         $member ->fname=$request->fname;
         $member ->lname=$request->lname;
@@ -85,7 +90,7 @@ class RegisterController extends Controller
         $member ->city=$request->city;
         $member ->state=$request->state;
         $member ->country=$request->country;
-        
+        $member ->profile=$profile;
         $member ->save();
         echo "Data Submitted";
     }
